@@ -1,9 +1,3 @@
-import os
-import subprocess
-import sys
-
-# Install openai if not already installed
-subprocess.check_call([sys.executable, "-m", "pip", "install", "openai"])
 
 import openai
 import os
@@ -22,3 +16,4 @@ response = openai.chat.completions.create(
 )
 
 print(response.choices[0].message.content)
+>>>>>>> 98d9831f96e04c700124b17ee7f4145fda38a087
