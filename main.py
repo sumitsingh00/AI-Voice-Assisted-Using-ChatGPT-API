@@ -13,6 +13,7 @@ load_dotenv()  # Load environment variables from .env file
 
 # Set API key
 openai.api_key = os.getenv("API_KEY")
+print("gfdjhadsg")
 
 # Example usage
 response = openai.chat.completions.create(
