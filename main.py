@@ -1,17 +1,22 @@
-# import openai
-import os
-from dotenv import load_dotenv
+from openai import OpenAI
 
-load_dotenv()  # Load environment variables from .env file
-
-# Set API key
-openai.api_key = os.getenv("API_KEY")
-print("gfdjhadsg")
-
-# Example usage
-response = openai.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": "Hello!"}]
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",
+  api_key="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",
 )
 
-print(response.choices[0].message.content)
+completion = client.chat.completions.create(
+  extra_headers={
+    "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
+    "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
+  },
+  extra_body={},
+  model="deepseek/deepseek-r1-0528:free",
+  messages=[
+    {
+      "role": "user",
+      "content": "What is the captial of india?"
+    }
+  ]
+)
+print(completion.choices[0].message.content)
