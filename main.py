@@ -1,5 +1,4 @@
-
-import openai
+# import openai
 import os
 from dotenv import load_dotenv
 
@@ -16,4 +15,3 @@ response = openai.chat.completions.create(
 )
 
 print(response.choices[0].message.content)
->>>>>>> 98d9831f96e04c700124b17ee7f4145fda38a087
